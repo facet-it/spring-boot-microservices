@@ -13,6 +13,6 @@ public class ProductDTO implements Serializable {
     private String name;
     private String description;
     private double price;
-    private int loyaltyPoints;
+    private Integer loyaltyPoints;
 
 }

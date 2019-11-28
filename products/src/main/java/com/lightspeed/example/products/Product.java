@@ -31,7 +31,7 @@ public class Product {
     private double price;
 
     @Column(name = "loyalty_points")
-    private int loyaltPoints;
+    private Integer loyaltPoints;
 
     public ProductDTO toDto() {
         return ProductDTO.builder()
