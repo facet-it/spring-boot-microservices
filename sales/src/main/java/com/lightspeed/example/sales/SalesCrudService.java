@@ -1,6 +1,7 @@
 package com.lightspeed.example.sales;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
@@ -11,6 +12,9 @@ public class SalesCrudService {
 
     @Autowired
     private SalesRepository repository;
+
+    @Autowired
+    private KafkaTemplate<String, String> template;
 
     public List<SalesDTO> getAllSales() {
         List<SalesDTO> sales = new LinkedList<>();
@@ -25,7 +29,8 @@ public class SalesCrudService {
     }
 
     public void addSale(Sale sale) {
-        repository.save(sale);
+        Sale result = repository.save(sale);
+        template.send("sales", "Sale created with id " + result.getId());
     }
 
 }
