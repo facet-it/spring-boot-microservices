@@ -35,7 +35,7 @@ public class ProductApi {
         product.setDescription("some description");
         product.setPlu("plu::" + randomNumber);
         product.setPrice(randomgenerator.nextDouble());
-        product.setLoyaltPoints(randomgenerator.nextInt(500) + 20);
+        product.setLoyaltyPoints(randomgenerator.nextInt(500) + 20);
 
         crudService.addProduct(product);
     }
