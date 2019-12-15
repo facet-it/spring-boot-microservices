@@ -1,4 +1,4 @@
-package com.lightspeed.example.products;
+package com.lightspeed.example.products.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
