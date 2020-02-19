@@ -1,5 +1,7 @@
 package com.lightspeed.example.products.config;
 
+import com.lightspeed.example.sales.SaleCreatedEvent;
+
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -41,25 +43,32 @@ public class KafkaConfig {
     }
 
     @Bean
-    public ConsumerFactory<String, String> consumerFactory() {
+    public ConsumerFactory<String, SaleCreatedEvent> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
+
+        JsonDeserializer  deserializer = new JsonDeserializer();
+        deserializer.addTrustedPackages("*");
+
         props.put(
             ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
             bootstrapAddress);
+        props.put(
+            ConsumerConfig.GROUP_ID_CONFIG,
+            "handling-sales");
         props.put(
             ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
             StringDeserializer.class);
         props.put(
             ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
             JsonDeserializer.class);
-        return new DefaultKafkaConsumerFactory<>(props);
+        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), deserializer);
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, String>
+    public ConcurrentKafkaListenerContainerFactory<String, SaleCreatedEvent>
     kafkaListenerContainerFactory() {
 
-        ConcurrentKafkaListenerContainerFactory<String, String> factory =
+        ConcurrentKafkaListenerContainerFactory<String, SaleCreatedEvent> factory =
             new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         return factory;
