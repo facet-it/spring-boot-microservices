@@ -1,4 +1,4 @@
-package com.lightspeed.usage.usageaudit;
+package com.lightspeed.restaurant.usage;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;

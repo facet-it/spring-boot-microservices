@@ -1,4 +1,4 @@
-package com.lightspeed.usage.usageaudit;
+package com.lightspeed.restaurant.usage;
 
 import com.lightspeed.restaurant.usage.EndpointUsedEvent;
 

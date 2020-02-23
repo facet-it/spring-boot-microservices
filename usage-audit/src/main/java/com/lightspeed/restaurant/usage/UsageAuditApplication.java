@@ -1,4 +1,4 @@
-package com.lightspeed.usage.usageaudit;
+package com.lightspeed.restaurant.usage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

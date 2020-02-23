@@ -1,0 +1,1 @@
+CREATE USER 'manager'@'localhost' IDENTIFIED BY 'test1234';

@@ -9,4 +9,5 @@ public class EndpointUsedEvent {
     private CompanyDetails companyDetails;
     private String endpoint;
     private String arguments;
+    private long time;
 }
