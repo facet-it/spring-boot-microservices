@@ -2,8 +2,6 @@ package com.lightspeed.restaurant.usage.storage;
 
 import com.lightspeed.restaurant.usage.EndpointUsedEvent;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +23,7 @@ public class EndpointUsedEntry {
     private int id;
 
     @Column(name = "time")
-    private LocalDateTime time;
+    private long time;
 
     @Column(name = "userId")
     private int userId;

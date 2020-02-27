@@ -11,12 +11,12 @@ import lombok.extern.java.Log;
 
 @Component
 @Log
-public class EventHandler {
+public class EventPersistenceHandler {
 
     @Autowired
     private EndpointUsedRepository repository;
 
-    @KafkaListener(topics = "usage-audit", groupId = "usage")
+    @KafkaListener(topics = "usage-audit", groupId = "persist")
     public void consumeSalesEvent(EndpointUsedEvent event) {
         log.info("Handling incoming event");
 
