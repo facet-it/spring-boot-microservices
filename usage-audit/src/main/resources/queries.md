@@ -2,7 +2,7 @@ CREATE USER 'manager'@'localhost' IDENTIFIED BY '
 
 
 
-```
+```sql
 CREATE TABLE `events` (
    `id` int(11) NOT NULL AUTO_INCREMENT,
    `time` BIGINT NOT NULL,
@@ -18,4 +18,14 @@ CREATE TABLE `events` (
    `endpoint` varchar(200) DEFAULT NULL,
    `arguments` text,
    PRIMARY KEY (`id`));
+```
+
+The table for endpoint usage per company
+
+```sql
+CREATE TABLE `enpoint_usage_snapshot` (
+  `time` bigint(20) NOT NULL,
+  `aggregate` mediumtext NOT NULL,
+  PRIMARY KEY (`time`)
+)
 ```
