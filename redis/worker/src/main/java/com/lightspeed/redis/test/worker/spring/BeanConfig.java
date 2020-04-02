@@ -6,8 +6,10 @@ import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 @Configuration
+@EnableAsync
 public class BeanConfig {
 
     public Config getConfig() {
@@ -24,6 +26,6 @@ public class BeanConfig {
 
     @Bean
     public RTopic getRTopic(RedissonClient client) {
-        return client.getTopic("chat");
+        return client.getTopic("general-test");
     }
 }
